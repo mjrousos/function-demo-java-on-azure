@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <functionAppName>walkthrough-prototype</functionAppName>
+        <functionAppName>walkthrough-$UniqueId$</functionAppName>
     </properties>
 
     <repositories>

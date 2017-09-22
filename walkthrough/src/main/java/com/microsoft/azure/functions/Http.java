@@ -8,7 +8,7 @@ import com.microsoft.azure.serverless.functions.ExecutionContext;
  */
 public class Http {
     @FunctionName("hello")
-    public String hello(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
+    public String hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
                         ExecutionContext context) {
         return String.format("Hello, %s!", req);
     }
