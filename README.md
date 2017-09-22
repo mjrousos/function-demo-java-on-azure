@@ -195,3 +195,46 @@ Now you can set the breakpoints in:
 Those breakpoints will be hit when the corresponding function is triggered. And when any of them is hit, hover the mouse to some variables, like `executionContext` or `timerInfo`, to demostrate that the user could inspect all the execution environment here. And press `F5` to continue running.
 
 ## DEMO 4: Deploy Java Functions by Jenkins
+
+### Prerequisites
+
+1. Install the [Azure Function Plugin](https://github.com/jenkinsci/azure-function-plugin) for Jenkins. You can install/update the plugin in Jenkins Update Center (Manage Jenkins -> Manage Plugins, search Azure Function Plugin).
+2. Create an Azure Service Principal through [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli) or [Azure Portal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+3. Open Jenkins dashboard, go to Credentials, add a new Microsoft Azure Service Principal with the credential information you just created.
+
+### Deploy using Freestyle Project
+
+You can deploy your Azure Function using a classic freestyle project:
+
+1. Create a new freestyle project in Jenkins, add necessary build steps to build your code. For example, if you use maven commands above you should get following directory structure after build:
+```
+target/azure-functions
+-- walkthrough-prototype
+    |-- Queue
+        |-- function.json
+    |-- Timer
+        |-- function.json
+    |-- hello
+        |-- function.json
+    |-- host.json
+    |-- walkthrough-1.0-SNAPSHOT.jar
+```
+2. Add a post-build action 'Publish an Azure Function'.
+3. Select your Azure credential in Azure Profile Configuration section.
+4. In App Configuration section, choose the resource group and function app in your subscription.
+5. Fill in 'Files' field with `**/*.jar,**/*.json` to select files we want to deploy.
+6. Fill in 'Source Directory' field with `target/azure-functions`.
+6. Save the project and build it, your function app will be deployed to Azure when build is completed.
+
+### Deploy using Pipeline
+
+You can also use this plugin in pipeline (Jenkinsfile). Here are some samples to use the plugin in pipeline script:
+
+To deploy a Java function app:
+
+```groovy
+azureFunctionAppPublish azureCredentialsId: '<credential_id>',
+    resourceGroup: '<resource_group_name>', appName: '<app_name>',
+    filePath: '**/*.jar,**/*.json', sourceDirectory: 'target/azure-functions'
+```
+For advanced options, you can use Jenkins Pipeline Syntax tool to generate a sample script.
