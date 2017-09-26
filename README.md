@@ -50,8 +50,6 @@ mvn clean install
 
 ### Configurations
 
-Add a new environment variable called `JAVA_OPTS`, and set its value to `-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005` (don't miss the leading dash there).
-
 Create a new storage account by executing (The `UniqueID` is just used to make sure your account name doesn't conflict with others, for example you can use the "current date & time", or "your alias + sequence number"; make sure the total length of the names are not exceeding 24 characters, and make sure you only use lower-case letters or numbers):
 
 ```batchfile
