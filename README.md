@@ -18,36 +18,6 @@ Navigate to [VSCode Java Debug extension Jenkins server](https://vscjavaci.cloud
 
 Launch Visual Studio Code, press `F1` and then type `>Extensions: Install from VSIX` in the command input box (the right-angle-bracket `>` is in the input box by default, so you don't need to duplicate it); then press `Enter`, and a dialog will be popped up, you need to choose the `vscode-java-debug-0.1.0.vsix` which is the one you just downloaded. After it is installed, Visual Studio Code will ask you to reload the whole window, and just do it.
 
-Clone the [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) repository to your local folder using:
-
-```batchfile
-git clone https://github.com/Azure/azure-functions-java-worker.git
-```
-
-Enter the repository you just cloned by executing:
-
-```batchfile
-cd azure-functions-java-worker
-```
-
-And install it locally by running:
-
-```batchfile
-mvn clean install
-```
-
-Do similar things for other two packages: [azure-maven-archetypes](https://github.com/Microsoft/azure-maven-archetypes) and [azure-maven-plugins](https://github.com/Microsoft/azure-maven-plugins). You are required to clone all the packages in your working directory (which should just be the parent folder of `azure-functions-java-worker`).
-
-```batchfile
-git clone https://github.com/Microsoft/azure-maven-archetypes.git
-cd azure-maven-archetypes
-mvn clean install
-cd ../
-git clone https://github.com/Microsoft/azure-maven-plugins.git
-cd azure-maven-plugins
-mvn clean install
-```
-
 ### Configurations
 
 Create a new storage account by executing (The `UniqueID` is just used to make sure your account name doesn't conflict with others, for example you can use the "current date & time", or "your alias + sequence number"; make sure the total length of the names are not exceeding 24 characters, and make sure you only use lower-case letters or numbers):
@@ -74,7 +44,7 @@ git clone https://github.com/Microsoft/function-demo-java-on-azure.git
 cd function-demo-java-on-azure
 ```
 
-And make sure you replace the `$UniqueId$` in `walkthrough/pom.xml` with the actual string of your unique ID.
+And make sure you replace the `$UniqueId$` in `walkthrough/pom.xml` with the actual string of your unique ID. And you also need to replace `$ResourceGroupName$` in `walkthrough/pom.xml` with the actual string of your resource group name (which should be `BoothAzFunc<UniqueID>`).
 
 Then open `walkthrough/local.settings.json` and paste the **connection string** of your storage account to the value of `AzureWebJobsStorage`.
 
