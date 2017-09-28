@@ -106,7 +106,7 @@ The timer and the queue functions will be triggered once per 30 seconds. To trig
 curl -X POST -d "World" http://localhost:7071/api/hello
 ```
 
-To terminate the app, press `Ctrl + C`, in addition, launch some Take Manager and **terminate all `java.exe` processes** (you don't need to make sure it disappears from the task manager because some of the `java.exe` will be automatically restarted; what you need to do is just trigger the `End Process` on every `java.exe`).
+To terminate the app, press `Ctrl + C`.
 
 ### Deployment
 
@@ -118,7 +118,7 @@ mvn azure-functions:deploy
 
 And you will find your functions app named `walkthrough-<UniqueID>` under `Java Demos` subscription.
 
-You will also be able to find the URL of the deployed app within the last 10 lines of the command line output. So it is possible to verify that it is actually running on Azure.
+You will also be able to find the URL of the deployed app within the last several lines of the command line output. So it is possible to verify that it is actually running on Azure.
 
 ```batchfile
 curl -X POST -d "Azure World" <Deployed Host URL>/api/hello
