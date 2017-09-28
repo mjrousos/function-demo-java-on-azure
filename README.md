@@ -1,8 +1,8 @@
 # Walkthrough Steps
 
-## Environment Setup
+## One-Time Environment Setup
 
-### Softwares
+### Softwares & Extensions
 
 Install Azure functions core tools using
 
@@ -10,13 +10,7 @@ Install Azure functions core tools using
 npm i -g azure-functions-core-tools@core
 ```
 
-### Extensions
-
-Navigate to [VSCode Java Debug extension Jenkins server](https://vscjavaci.cloudapp.net/), and use your GitHub account to log in. When everything works fine, download the [extension vsix file](https://vscjavaci.cloudapp.net/job/vscode-java-debug.vsix/19/Azure/).
-
-> If the downloaded file is renamed to zip (for example when you download it from Microsoft Edge browser), you need to rename it back to `vscode-java-debug-0.1.0.vsix`
-
-Launch Visual Studio Code, press `F1` and then type `>Extensions: Install from VSIX` in the command input box (the right-angle-bracket `>` is in the input box by default, so you don't need to duplicate it); then press `Enter`, and a dialog will be popped up, you need to choose the `vscode-java-debug-0.1.0.vsix` which is the one you just downloaded. After it is installed, Visual Studio Code will ask you to reload the whole window, and just do it.
+Install [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack) for Visual Studio Code.
 
 ### Configurations
 
@@ -44,9 +38,9 @@ git clone https://github.com/Microsoft/function-demo-java-on-azure.git
 cd function-demo-java-on-azure
 ```
 
-And make sure you replace the `$UniqueId$` in `walkthrough/pom.xml` with the actual string of your unique ID. And you also need to replace `$ResourceGroupName$` in `walkthrough/pom.xml` with the actual string of your resource group name (which should be `BoothAzFunc<UniqueID>`).
+And make sure you replace the [`$UniqueId$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L18) in `walkthrough/pom.xml` with the actual string of your unique ID. And you also need to replace [`$ResourceGroupName$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L82) in `walkthrough/pom.xml` with the actual string of your resource group name (which should be `BoothAzFunc<UniqueID>`).
 
-Then open `walkthrough/local.settings.json` and paste the **connection string** of your storage account to the value of `AzureWebJobsStorage`.
+Then open `walkthrough/local.settings.json` and paste the **connection string** of your storage account to the value of [`AzureWebJobsStorage`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L82).
 
 ## DEMO 1: Java Functions by Maven
 
@@ -70,7 +64,7 @@ The timer and the queue functions will be triggered once per 30 seconds. To trig
 curl -X POST -d "World" http://localhost:7071/api/hello
 ```
 
-To terminate the app, press `Ctrl + C`, in addition, launch some Take Manager and **terminate all `java.exe` processes** (you don't need to make sure it disappears from the task manager because some of the `java.exe` will be automatically restarted; what you need to do is just trigger the `End Process` on every `java.exe`).
+To terminate the app, press `Ctrl + C`.
 
 ### Deployment
 
@@ -82,10 +76,10 @@ mvn azure-functions:deploy
 
 And you will find your functions app named `walkthrough-<UniqueID>` under `Java Demos` subscription.
 
-You will also be able to find the URL of the deployed app within the last 10 lines of the command line output. So it is possible to verify that it is actually running on Azure.
+You will also be able to find the URL of the deployed app within the last several lines of the command line output. So it is possible to verify that it is actually running on Azure.
 
 ```batchfile
-curl -X POST -d "World" <Deployed Host URL>/api/hello
+curl -X POST -d "Azure World" <Deployed Host URL>/api/hello
 ```
 
 ## DEMO 2: Java Functions by Visual Studio Code
@@ -127,7 +121,7 @@ And you will find your functions app named `walkthrough-<UniqueID>` under `Java 
 You will also be able to find the URL of the deployed app within the last 10 lines of the command line output. So it is possible to verify that it is actually running on Azure.
 
 ```batchfile
-curl -X POST -d "World" <Deployed Host URL>/api/hello
+curl -X POST -d "Azure World" <Deployed Host URL>/api/hello
 ```
 
 ## DEMO 3: Debugging Java Functions by Visual Studio Code

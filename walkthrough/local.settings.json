@@ -1,7 +1,7 @@
 {
   "IsEncrypted": false,
   "Values": {
-    "AzureWebJobsStorage": "DefaultEndpointsProtocol=https;AccountName=oncalllistproto;AccountKey=F1BdAnNDIXhIlgCYWRFZYDmOG2hc75JUI9k79i5VsuODzyeV8hIL3vJRmHMPhdCrIMt6WjnOrdNI0KAUqBdI7Q==;BlobEndpoint=https://oncalllistproto.blob.core.windows.net/;QueueEndpoint=https://oncalllistproto.queue.core.windows.net/;TableEndpoint=https://oncalllistproto.table.core.windows.net/;FileEndpoint=https://oncalllistproto.file.core.windows.net/;",
+    "AzureWebJobsStorage": "",
     "AzureWebJobsDashboard": ""
   }
 }
