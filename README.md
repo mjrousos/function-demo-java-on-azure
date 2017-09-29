@@ -38,7 +38,7 @@ git clone https://github.com/Microsoft/function-demo-java-on-azure.git
 cd function-demo-java-on-azure
 ```
 
-And make sure you replace the [`$UniqueId$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L18) in `walkthrough/pom.xml` with the actual string of your unique ID. And you also need to replace [`$ResourceGroupName$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L82) in `walkthrough/pom.xml` with the actual string of your resource group name (which should be `BoothAzFunc<UniqueID>`).
+And make sure you replace the [`$UniqueId$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L18) in `walkthrough/pom.xml` with the actual string of your unique ID. And you also need to replace [`$ResourceGroupName$`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L57) in `walkthrough/pom.xml` with the actual string of your resource group name (which should be `BoothAzFunc<UniqueID>`).
 
 Then open `walkthrough/local.settings.json` and paste the **connection string** of your storage account to the value of [`AzureWebJobsStorage`](https://github.com/Microsoft/function-demo-java-on-azure/blob/master/walkthrough/pom.xml#L82).
 
