@@ -22,15 +22,7 @@
         <dependency>
             <groupId>com.microsoft.azure</groupId>
             <artifactId>azure-functions-java-core</artifactId>
-            <version>1.0.0-beta-1</version>
-        </dependency>
-
-        <!-- Test -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <version>1.0.0-beta-2</version>
         </dependency>
     </dependencies>
 
@@ -44,7 +36,7 @@
                 <plugin>
                     <groupId>com.microsoft.azure</groupId>
                     <artifactId>azure-functions-maven-plugin</artifactId>
-                    <version>0.1.6</version>
+                    <version>0.1.7</version>
                 </plugin>
             </plugins>
         </pluginManagement>
