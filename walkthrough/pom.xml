@@ -15,7 +15,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <functionAppName>walkthrough-$UniqueId$</functionAppName>
+        <functionAppName>walkthrough-mikerou</functionAppName>
     </properties>
 
     <dependencies>
@@ -46,9 +46,9 @@
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-functions-maven-plugin</artifactId>
                 <configuration>
-                    <resourceGroup>$ResourceGroupName$</resourceGroup>
+                    <resourceGroup>javademofunctions</resourceGroup>
                     <appName>${functionAppName}</appName>
-                    <region>westus2</region>
+                    <region>westus</region>
                     <appSettings>
                         <property>
                             <name>FUNCTIONS_EXTENSION_VERSION</name>
